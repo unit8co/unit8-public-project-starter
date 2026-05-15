@@ -7,11 +7,14 @@
 - ETL scaffolding: `src/agentic_project_starter/etl`
 - API entrypoint: `src/agentic_project_starter/api/app.py`
 - CLI entrypoint: `src/agentic_project_starter/cli/main.py`
-- Infrastructure: `infra/terraform`
 - Human docs: `docs`
 - Repo-local Codex guidance: `.agents/skills/`
-  - frontend guidance: `.agents/skills/frontend-starter-guidance/`
   - scaffold delivery guidance: `.agents/skills/scaffold-outcomes/`
+  - frontend guidance: `.agents/skills/frontend-starter-guidance/`
+  - agent and ETL scaffolding: `.agents/skills/agent-etl-scaffolder/`
+  - architecture boundaries: `.agents/skills/architecture-boundaries/`
+  - Python quality gates: `.agents/skills/python-quality-gates/`
+  - docstring completeness: `.agents/skills/docstring-completeness/`
 
 ## Working Rules
 - Keep this repository as a starter scaffold. Prefer contracts, placeholders, and examples over product-specific logic.
@@ -21,19 +24,18 @@
 - Keep environment variable names synchronized across:
   - `.env.example`
   - `docs/environment-variables.md`
-  - Docker and Terraform examples when relevant
+  - Docker examples when relevant
 - Prefer typed configuration, explicit defaults, and small composable modules.
 - When adding new starter capabilities, update README and the relevant docs page in the same change.
-- If a downstream repo enables the change-understanding quiz gate, run `agentic-starter quiz-changes` after code changes and commit `.change-quiz/result.json` with the PR.
+- If a downstream repo enables the change-understanding quiz gate, run `make quiz` after code changes and commit `.change-quiz/result.json` with the PR.
 
 ## Validation Expectations
 Run the narrowest checks that cover the touched area:
-- Python code: `uv run pytest`, `uv run ruff check .`, `uv run mypy src`
-- Docker/runtime changes: `docker build -t agentic-project-starter .`
-- Terraform changes: `terraform fmt -check -recursive infra/terraform` and provider-level validation where possible
+- Python code: `make check`
+- Docker/runtime changes: `make docker-up`
 
 ## Review Checklist
 - New code stays template-safe and avoids hidden business logic.
 - Docs reflect actual commands and file paths.
-- Settings names match code, docs, Docker, and infra examples.
+- Settings names match code, docs, and Docker examples.
 - Stub workflows fail clearly and do not pretend to perform production work.

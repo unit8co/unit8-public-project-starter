@@ -7,7 +7,6 @@
 - ETL job structure
 - an optional ChatKit-based frontend accelerator
 - local and Docker execution
-- Terraform deployment starters for Azure, AWS, and GCP
 - strong Codex contributor guidance through `AGENTS.md` and repo-local skills
 
 This repository intentionally ships placeholder workflows rather than business
@@ -27,7 +26,7 @@ To start a new project:
 5. In the new repository, update:
    - package and module names if `agentic_project_starter` is no longer the right name
    - `.env` values and environment-variable defaults
-   - README, docs, and deployment settings for the actual project
+   - README, docs, and runtime settings for the actual project
 6. Commit that initial project rename and setup baseline before you start large implementation changes.
 
 Recommended first pass in the new repo:
@@ -36,7 +35,7 @@ Recommended first pass in the new repo:
 - define the actual FastAPI routes and domain services
 - replace placeholder agent definitions with project-specific agents, tools, and prompts
 - replace ETL examples with real sources, transforms, and sinks
-- narrow the Terraform environments to the cloud targets you actually plan to use
+- decide whether Docker is enough for your demo or whether your project needs its own deployment setup
 
 ## How To Prompt Codex
 
@@ -48,7 +47,7 @@ Good prompts usually include:
 - the business goal and target users
 - the API or CLI behavior you want
 - the data sources and storage model
-- the cloud or runtime target
+- the runtime target
 - constraints such as auth, latency, cost, compliance, or testing expectations
 - concrete acceptance criteria
 
@@ -56,7 +55,7 @@ When prompting Codex in the new repo:
 
 - tell it to preserve the overall scaffold unless there is a clear reason to change structure
 - ask it to implement one subsystem at a time
-- ask it to update tests, docs, env vars, and infra examples together when behavior changes
+- ask it to update tests, docs, and env vars together when behavior changes
 - be explicit about what is real logic versus what should stay as reusable template scaffolding
 - if you want frontend help, say whether the product is chat-first; this starter has repo-local skills that can recommend ChatKit when that is actually a good fit
 
@@ -98,11 +97,10 @@ scaffold still boots correctly before you add real business logic.
 
 ```bash
 cp .env.example .env
-uv sync --dev
-uv run agentic-starter doctor
-uv run agentic-starter serve --reload
-npm --prefix frontend install
-npm --prefix frontend run dev -- --host 127.0.0.1 --port 5173
+make setup
+make doctor
+make serve
+make frontend
 ```
 
 API endpoints:
@@ -119,17 +117,16 @@ Optional frontend:
 ## Common commands
 
 ```bash
-make sync
+make setup
+make doctor
 make check
 make serve
-make frontend-install
 make frontend
 make frontend-build
 make agent
 make etl
 make quiz
 make quiz-verify
-make docker-build
 make docker-up
 ```
 
@@ -147,9 +144,6 @@ make docker-up
 │   └── shared
 ├── frontend
 ├── docs
-├── infra/terraform
-│   ├── environments
-│   └── modules
 └── .agents/skills
 ```
 
@@ -160,4 +154,3 @@ make docker-up
 - [Environment Variables](docs/environment-variables.md)
 - [Getting Started](docs/getting-started.md)
 - [Local vs Docker](docs/local-vs-docker.md)
-- [Infrastructure](docs/infrastructure.md)

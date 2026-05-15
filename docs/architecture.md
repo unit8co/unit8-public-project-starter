@@ -8,7 +8,6 @@ projects a clear starting point for:
 - ETL pipelines
 - an optional ChatKit-based frontend accelerator
 - local and Docker execution
-- multi-cloud Terraform deployment
 
 ## Source layout
 
@@ -48,4 +47,4 @@ When turning this starter into a real project:
 2. Replace ETL stub stages with real extract/transform/load implementations.
 3. Replace the file-backed chat storage and ChatKit adapter if your real project needs different UX or persistence.
 4. Add domain routers and services under `api/` and `runtime/`.
-5. Wire cloud-specific secrets and identity into the Terraform environment that matches your target cloud.
+5. Add project-specific deployment automation only when the project needs it.

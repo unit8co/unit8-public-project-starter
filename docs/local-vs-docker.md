@@ -4,16 +4,16 @@ The starter keeps the same application interface in both modes.
 
 ## Local
 
-- command: `uv run agentic-starter serve --reload`
-- optional frontend: `npm --prefix frontend run dev -- --host 127.0.0.1 --port 5173`
+- command: `make serve`
+- optional frontend: `make frontend`
 - configuration: `.env` and optional `.env.local`
 - best for: fast iteration, smoke tests, and starter customization
 
 ## Docker
 
-- command: `docker compose up --build`
+- command: `make docker-up`
 - configuration: `.env` plus Docker environment overrides
-- best for: parity checks, container validation, and cloud handoff preparation
+- best for: parity checks, container validation, and demo handoff preparation
 
 ## Runtime parity expectations
 

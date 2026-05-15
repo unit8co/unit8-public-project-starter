@@ -22,16 +22,12 @@ IGNORED_EXACT_PATHS = {
     ".change-quiz/result.json",
     "uv.lock",
 }
-IGNORED_NAMES = {
-    ".terraform.lock.hcl",
-}
 IGNORED_PARTS = {
     ".cache",
     ".git",
     ".mypy_cache",
     ".pytest_cache",
     ".ruff_cache",
-    ".terraform",
     ".uv-cache",
     ".venv",
     "__pycache__",
@@ -205,9 +201,6 @@ def is_quiz_relevant_file(path: str) -> bool:
         return False
 
     name = parts[-1]
-    if name in IGNORED_NAMES:
-        return False
-
     lowered = name.lower()
     return not any(lowered.endswith(suffix) for suffix in IGNORED_SUFFIXES)
 

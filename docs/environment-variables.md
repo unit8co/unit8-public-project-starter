@@ -8,7 +8,7 @@ The application reads settings from `.env` and optional overrides from
 | Variable | Default | Purpose |
 | --- | --- | --- |
 | `APP_NAME` | `agentic-project-starter` | Service name used in API metadata and logs |
-| `APP_ENVIRONMENT` | `local` | Runtime profile such as `local`, `docker`, `ci`, `azure`, `aws`, or `gcp` |
+| `APP_ENVIRONMENT` | `local` | Runtime profile such as `local`, `docker`, or `ci` |
 | `APP_HOST` | `0.0.0.0` | Bind host for local and container execution |
 | `APP_PORT` | `8000` | Bind port for local and container execution |
 | `LOG_LEVEL` | `INFO` | Root log level |
@@ -30,14 +30,6 @@ The application reads settings from `.env` and optional overrides from
 | `STORAGE_URI` | `file://./var/data` | Starter storage location for local or containerized work |
 | `ETL_DEFAULT_DATASET` | `demo-dataset` | Default dataset identifier for CLI ETL commands |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | empty | Optional OTLP endpoint for telemetry export |
-
-## Cloud defaults
-
-| Variable | Default | Purpose |
-| --- | --- | --- |
-| `AZURE_LOCATION` | `westeurope` | Default Azure region example |
-| `AWS_REGION` | `eu-central-1` | Default AWS region example |
-| `GCP_REGION` | `europe-west1` | Default GCP region example |
 
 ## Files
 

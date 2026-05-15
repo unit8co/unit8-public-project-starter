@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "agentic-project-starter"
 version = "0.1.0"
-description = "Starter scaffold for Python agentic AI services, ETL jobs, and multi-cloud deployment."
+description = "Starter scaffold for Python agentic AI services, ETL jobs, and Docker-ready local apps."
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "MIT" }

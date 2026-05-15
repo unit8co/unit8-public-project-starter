@@ -6,7 +6,7 @@ from typing import Literal
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-EnvironmentName = Literal["local", "docker", "ci", "azure", "aws", "gcp"]
+EnvironmentName = Literal["local", "docker", "ci"]
 
 
 class Settings(BaseSettings):
@@ -33,10 +33,6 @@ class Settings(BaseSettings):
     storage_uri: str = "file://./var/data"
     etl_default_dataset: str = "demo-dataset"
     otel_exporter_otlp_endpoint: str | None = None
-
-    azure_location: str = "westeurope"
-    aws_region: str = "eu-central-1"
-    gcp_region: str = "europe-west1"
 
     api_base_path: str = Field(default="/v1", pattern=r"^/")
 

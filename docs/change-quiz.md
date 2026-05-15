@@ -21,7 +21,7 @@ review, branch protection, or normal tests.
 Run the quiz before opening a PR:
 
 ```bash
-uv run agentic-starter quiz-changes --base origin/main --head HEAD
+make quiz
 ```
 
 The command requires `OPENAI_API_KEY` and uses `OPENAI_MODEL`. It creates
@@ -33,7 +33,7 @@ matches the latest diff.
 To verify the committed artifact without calling an LLM:
 
 ```bash
-uv run agentic-starter quiz-changes --verify --base origin/main --head HEAD
+make quiz-verify
 ```
 
 ## GitHub Enforcement
@@ -63,7 +63,6 @@ changes the head commit.
 The quiz ignores generated, cache, binary, lockfile, and artifact paths such as:
 
 - `uv.lock`
-- `.terraform.lock.hcl`
 - `.change-quiz/result.json`
 - `__pycache__/`
 - `.pytest_cache/`
