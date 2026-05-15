@@ -9,4 +9,4 @@ services:
       APP_ENVIRONMENT: docker
     ports:
       - "8000:8000"
-    command: ["uv", "run", "agentic-starter", "serve", "--host", "0.0.0.0", "--port", "8000"]
+    command: ["uv", "run", "--no-sync", "agentic-starter", "serve", "--host", "0.0.0.0", "--port", "8000"]

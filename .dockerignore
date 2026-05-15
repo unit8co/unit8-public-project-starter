@@ -5,9 +5,15 @@
 .ruff_cache
 .terraform
 .venv
+.env
+.env.local
+.env.docker
 __pycache__
 *.pyc
+*.tsbuildinfo
 frontend/node_modules
+frontend/dist
 docs
 infra
 tests
+var

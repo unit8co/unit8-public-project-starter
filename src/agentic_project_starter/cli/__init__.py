@@ -1,1 +1,1 @@
-"""Typer CLI entrypoints."""
+"""CLI entrypoints."""

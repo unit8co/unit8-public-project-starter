@@ -37,6 +37,17 @@ Recommended first pass in the new repo:
 - replace ETL examples with real sources, transforms, and sinks
 - decide whether Docker is enough for your demo or whether your project needs its own deployment setup
 
+## Hackathon Path
+
+For a Codex-focused hackathon, keep the first loop small and demonstrable:
+
+1. Create a repository from this template and clone it.
+2. Run `cp .env.example .env`, then add `OPENAI_API_KEY` if your demo needs live OpenAI calls.
+3. Run `make setup`, `make doctor`, and `make check` to confirm the scaffold is healthy.
+4. Ask Codex to implement one real feature on top of the existing package boundaries.
+5. Run `make serve` and, for chat-first demos, `make frontend`.
+6. Before opening a PR, run `make quiz` and commit `.change-quiz/result.json`; the quiz check is mandatory by default.
+
 ## How To Prompt Codex
 
 After creating a new repo from this template, use Codex to replace the scaffold

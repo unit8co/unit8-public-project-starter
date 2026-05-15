@@ -18,7 +18,7 @@ projects a clear starting point for:
 - `src/agentic_project_starter/api`
   - FastAPI routes and ASGI entrypoint
 - `src/agentic_project_starter/cli`
-  - Typer commands for local runtime, doctor checks, agent runs, and ETL runs
+  - argparse commands for local runtime, doctor checks, agent runs, and ETL runs
 - `src/agentic_project_starter/agentic`
   - starter agent registry, request/response models, and OpenAI Agents SDK stubs
 - `src/agentic_project_starter/chat`
