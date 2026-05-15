@@ -1,0 +1,130 @@
+:root {
+  color-scheme: light;
+  font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(187, 247, 208, 0.8), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(254, 240, 138, 0.55), transparent 28%),
+    linear-gradient(135deg, #f5f5f4 0%, #fafaf9 45%, #ecfccb 100%);
+  color: #1c1917;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 1.5rem;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.hero-panel,
+.chat-frame {
+  border: 1px solid rgba(28, 25, 23, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 60px rgba(41, 37, 36, 0.08);
+}
+
+.hero-panel {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #15803d;
+}
+
+.hero-panel h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.lede {
+  margin: 1rem 0 0;
+  max-width: 28rem;
+  color: #57534e;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.fact-grid {
+  display: grid;
+  gap: 0.9rem;
+  margin: 2rem 0 0;
+}
+
+.fact-grid div {
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.8));
+  border: 1px solid rgba(28, 25, 23, 0.06);
+}
+
+.fact-grid dt {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+
+.fact-grid dd {
+  margin: 0;
+  font-size: 1rem;
+  color: #1c1917;
+}
+
+.chat-panel {
+  min-width: 0;
+}
+
+.chat-frame {
+  height: calc(100vh - 3rem);
+  padding: 0.8rem;
+}
+
+.chatkit-root {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+@media (max-width: 960px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .hero-panel {
+    padding: 1.5rem;
+  }
+
+  .chat-frame {
+    height: min(72vh, 780px);
+  }
+}

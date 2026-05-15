@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentic-project-starter"
+version = "0.1.0"
+description = "Starter scaffold for Python agentic AI services, ETL jobs, and multi-cloud deployment."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Unit8" }]
+dependencies = [
+  "fastapi>=0.115.0,<1.0.0",
+  "openai>=1.75.0,<2.0.0",
+  "openai-chatkit>=1.6.0,<2.0.0",
+  "openai-agents>=0.0.15,<1.0.0",
+  "pydantic-settings>=2.8.0,<3.0.0",
+  "python-dotenv>=1.0.1,<2.0.0",
+  "uvicorn[standard]>=0.34.0,<1.0.0",
+]
+
+[dependency-groups]
+dev = [
+  "mypy>=1.15.0,<2.0.0",
+  "pre-commit>=4.2.0,<5.0.0",
+  "pytest>=9.0.3,<10.0.0",
+  "pytest-cov>=6.1.1,<7.0.0",
+  "ruff>=0.11.8,<1.0.0",
+]
+
+[project.scripts]
+agentic-starter = "agentic_project_starter.cli.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentic_project_starter"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+  "B",
+  "E",
+  "F",
+  "I",
+  "N",
+  "Q",
+  "UP",
+  "W",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+strict = true
+plugins = []
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["agentic_project_starter"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

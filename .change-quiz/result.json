@@ -1,0 +1,69 @@
+{
+  "answers": [
+    {
+      "answer": "default is now if this is true or unset quiz is mandatory, and explicitely setting CHANGE_QUIZ_REQUIRED to false with make quiz non mandatory.",
+      "answer_guide": "It changed from opt-in to opt-out. Previously the steps only ran when `vars.CHANGE_QUIZ_REQUIRED == 'true'`; now they run whenever `vars.CHANGE_QUIZ_REQUIRED != 'false'`, so an unset variable also enables the job.",
+      "correct": true,
+      "feedback": "Correct. You captured the key diff-specific change: the workflow is now opt-out, meaning it runs when the variable is true or unset, and only an explicit false disables it. Minor wording issues only.",
+      "id": 1,
+      "question": "How did the default behavior of the `change-quiz` GitHub Actions job change in `quality.yml`?"
+    },
+    {
+      "answer": "CHANGE_QUIZ_REQUIRED = false disables enforcement, but true or unset result in quiz being mandatory",
+      "answer_guide": "Setting `CHANGE_QUIZ_REQUIRED=false` disables it. If the variable is unset or set to `true`, the quiz job is enforced/run.",
+      "correct": true,
+      "feedback": "Correct. You identified the disabling value (`false`) and the values/states that still enforce the quiz (`true` or unset).",
+      "id": 2,
+      "question": "What repository variable value now disables the change quiz workflow, and what values still result in enforcement?"
+    },
+    {
+      "answer": "change-quiz md fle was updated as well as getting started md",
+      "answer_guide": "`docs/change-quiz.md` was updated to say the PR gate runs by default in downstream repos and that `CHANGE_QUIZ_REQUIRED` is now an opt-out switch. `docs/getting-started.md` was also updated to remove 'optional' wording and explain that the quiz verification job runs by default unless `CHANGE_QUIZ_REQUIRED=false` is set.",
+      "correct": true,
+      "feedback": "Partially detailed but sufficient. You correctly identified both updated docs files (`docs/change-quiz.md` and `docs/getting-started.md`). You missed the specific content changes: that the quiz now runs by default, the variable is documented as opt-out, and the 'optional' wording was removed.",
+      "id": 3,
+      "question": "What documentation updates were made to explain this new workflow behavior?"
+    },
+    {
+      "answer": "setting up branch protection and make change-quiz github action check required in branch protection",
+      "answer_guide": "Making the `change-quiz` GitHub Actions check required in branch protection or a ruleset. The docs no longer say to enable it by setting the variable to `true`; instead they focus on branch protection/rulesets plus committing `.change-quiz/result.json`.",
+      "correct": true,
+      "feedback": "Correct. You captured the important documentation change: branch protection/rulesets with the `change-quiz` check marked required are now described as the main way to block merges.",
+      "id": 4,
+      "question": "What GitHub configuration is now described as the main way to make the quiz block merges?"
+    },
+    {
+      "answer": "quiz become mandatory is variable is unset",
+      "answer_guide": "They will now run the change quiz job on pull requests by default, which could surprise teams that previously expected it to stay disabled unless explicitly turned on. Repos must either support the quiz flow and commit `.change-quiz/result.json` or explicitly opt out with `CHANGE_QUIZ_REQUIRED=false`.",
+      "correct": true,
+      "feedback": "Mostly correct. You recognized the main impact that an unset variable now makes the quiz mandatory/runs by default. You missed some practical consequences: downstream repos may be surprised by new PR job failures and may need to support the quiz flow (including `.change-quiz/result.json`) or explicitly set `CHANGE_QUIZ_REQUIRED=false` to opt out.",
+      "id": 5,
+      "question": "What risk or workflow impact does this change introduce for downstream repositories that do not set `CHANGE_QUIZ_REQUIRED`?"
+    }
+  ],
+  "artifact_hash": "c09512f8c762fbf25702a27931b7676ae02302927423f03d6df58e77c3fd32e6",
+  "artifact_version": 1,
+  "base_ref": "origin/main",
+  "base_sha": "bd38c8de7587a45dedc13b4e39dd9e036b3f59e0",
+  "changed_files": [
+    ".github/workflows/quality.yml",
+    "docs/change-quiz.md",
+    "docs/getting-started.md"
+  ],
+  "diff_hash": "f4c972e6262a6d6406da828d754e6850334613e240194ebf19957fe1f42ccea5",
+  "file_list_hash": "85eac0cc115787b4c94a1e2442aa6f3278c11bde108cade8d280d3f621cf1784",
+  "generated_at": "2026-05-13T12:55:35.419958+00:00",
+  "head_ref": "HEAD",
+  "head_sha": "2774b65271dd9fca2f2c653233fbafbd006e4421",
+  "merge_base_sha": "bd38c8de7587a45dedc13b4e39dd9e036b3f59e0",
+  "model": "gpt-5.4",
+  "passed": true,
+  "passing_score": 4,
+  "question_count": 5,
+  "relevant_files": [
+    ".github/workflows/quality.yml",
+    "docs/change-quiz.md",
+    "docs/getting-started.md"
+  ],
+  "score": 5
+}

@@ -1,0 +1,13 @@
+.git
+.github
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.terraform
+.venv
+__pycache__
+*.pyc
+frontend/node_modules
+docs
+infra
+tests
