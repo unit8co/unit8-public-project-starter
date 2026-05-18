@@ -107,6 +107,8 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "agents": sorted(context.agent_specs),
                     "etl_jobs": sorted(context.etl_job_specs),
                     "storage_uri": context.settings.storage_uri,
+                    "openai_api_key_configured": bool(context.settings.openai_api_key),
+                    "openai_tracing_enabled": context.settings.openai_enable_tracing,
                     "chat_adapter": "chatkit",
                     "chat_storage_backend": "file",
                     "chat_storage_root": (

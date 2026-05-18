@@ -69,10 +69,12 @@ When prompting Codex in the new repo:
 - ask it to update tests, docs, and env vars together when behavior changes
 - be explicit about what is real logic versus what should stay as reusable template scaffolding
 - if you want frontend help, say whether the product is chat-first; this starter has repo-local skills that can recommend ChatKit when that is actually a good fit
+- name the relevant repo-local skill when the task is fragile: `scaffold-outcomes` for first product work, `frontend-starter-guidance` for chatbot/UI work, and `architecture-boundaries` for runtime or API wiring
 
 Example prompts for a new repo:
 
 ```text
+Use the scaffold-outcomes and architecture-boundaries skills.
 Implement the real application logic for this project on top of the starter.
 Keep the existing runtime/api/shared structure. Add FastAPI routes for account
 creation, login, and project management, backed by PostgreSQL. Update tests,
@@ -80,6 +82,7 @@ environment variables, and docs as part of the change.
 ```
 
 ```text
+Use the scaffold-outcomes skill.
 Replace the placeholder OpenAI Agents SDK scaffolding with a real multi-agent
 workflow for financial research. Keep the existing agentic package structure.
 Add a coordinator, researcher, and report-writer agent, define the tools they
@@ -87,6 +90,7 @@ use, and add smoke tests for registry wiring and dry-run behavior.
 ```
 
 ```text
+Use the agent-etl-scaffolder and architecture-boundaries skills.
 Replace the ETL starter jobs with a real pipeline that ingests CSV files from S3,
 normalizes them into a warehouse-friendly schema, and writes outputs to
 PostgreSQL. Keep the existing etl package structure, add typed job configs, and
@@ -94,6 +98,7 @@ update docs and environment variables.
 ```
 
 ```text
+Use the frontend-starter-guidance skill.
 Design the frontend for this product on top of the starter. First decide whether
 the experience should be chat-first or not. If it is chat-first, you may
 recommend the optional ChatKit path in `frontend/`, but keep the backend seams

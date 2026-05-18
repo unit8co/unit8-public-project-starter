@@ -24,6 +24,8 @@ def runtime_summary(request: Request) -> dict[str, object]:
         "agents": sorted(context.agent_specs.keys()),
         "etl_jobs": sorted(context.etl_job_specs.keys()),
         "storage_uri": context.settings.storage_uri,
+        "openai_api_key_configured": bool(context.settings.openai_api_key),
+        "openai_tracing_enabled": context.settings.openai_enable_tracing,
         "chat_adapter": "chatkit",
         "chat_storage_backend": "file",
         "chat_storage_root": (

@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     openai_api_key: str | None = None
     openai_model: str = "gpt-5"
     openai_default_agent: str = "coordinator"
-    openai_enable_tracing: bool = False
+    openai_enable_tracing: bool = True
     chatkit_domain_key: str = "local-dev"
 
     storage_uri: str = "file://./var/data"

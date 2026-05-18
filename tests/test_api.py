@@ -27,6 +27,8 @@ def test_runtime_summary() -> None:
     assert "bootstrap_pipeline" in payload["etl_jobs"]
     assert payload["chat_adapter"] == "chatkit"
     assert payload["chat_storage_backend"] == "file"
+    assert payload["openai_api_key_configured"] is False
+    assert payload["openai_tracing_enabled"] is True
 
 
 def test_chatkit_requires_openai_api_key() -> None:

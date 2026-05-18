@@ -20,7 +20,7 @@ The application reads settings from `.env` and optional overrides from
 | `OPENAI_API_KEY` | empty | API key required for live OpenAI calls |
 | `OPENAI_MODEL` | `gpt-5` | Default model name used by starter agent definitions |
 | `OPENAI_DEFAULT_AGENT` | `coordinator` | Default agent name for project-specific wrappers |
-| `OPENAI_ENABLE_TRACING` | `false` | Flag reserved for future tracing integration |
+| `OPENAI_ENABLE_TRACING` | `true` | Enables OpenAI Agents SDK tracing when `OPENAI_API_KEY` is configured |
 | `CHATKIT_DOMAIN_KEY` | `local-dev` | Domain key passed to the optional self-hosted ChatKit frontend |
 
 ## Data and observability
@@ -37,5 +37,5 @@ The application reads settings from `.env` and optional overrides from
 - `.env`: local developer secrets and overrides
 - `.env.local`: optional higher-priority local overrides
 - `.env.docker.example`: example container-oriented overrides
-- `frontend/.env.example`: frontend development example values for the optional ChatKit accelerator
-- `frontend/.env.local`: local frontend overrides such as `VITE_API_BASE_URL`
+- `frontend/.env.example`: optional frontend overrides for the ChatKit accelerator
+- `frontend/.env.local`: local frontend overrides such as `VITE_API_BASE_URL` when the backend is not on `127.0.0.1:8000`

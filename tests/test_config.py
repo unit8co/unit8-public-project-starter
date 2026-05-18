@@ -13,3 +13,9 @@ def test_settings_reads_environment(monkeypatch) -> None:
     assert settings.app_environment == "ci"
     assert settings.openai_model == "gpt-5"
     assert settings.chatkit_domain_key == "ci-domain"
+
+
+def test_settings_enable_openai_tracing_by_default() -> None:
+    settings = Settings(_env_file=None)
+
+    assert settings.openai_enable_tracing is True

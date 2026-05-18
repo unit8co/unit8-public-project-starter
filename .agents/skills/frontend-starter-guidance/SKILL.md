@@ -1,6 +1,6 @@
 ---
 name: frontend-starter-guidance
-description: Guide frontend decisions in this starter and downstream clones. Use when the request mentions frontend, React, Vite, UI architecture, chat interfaces, or tool-trace UX. Recommend ChatKit when the requested experience is chat-first or assistant-like, but do not force it on dashboard-first or non-conversational products.
+description: Guide frontend decisions in this starter and downstream clones. Use when the request mentions frontend, React, Vite, UI architecture, chatbot, assistant UI, ChatKit, chat interfaces, white screens, frontend smoke tests, or tool-trace UX. Recommend ChatKit when the requested experience is chat-first or assistant-like, but do not force it on dashboard-first or non-conversational products.
 ---
 
 # Frontend Starter Guidance

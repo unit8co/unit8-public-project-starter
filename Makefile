@@ -1,7 +1,7 @@
 UV ?= uv
 PACKAGE := agentic_project_starter
 
-.PHONY: setup format check doctor serve frontend frontend-build agent etl quiz quiz-verify docker-up
+.PHONY: setup format check doctor serve frontend frontend-check frontend-build agent etl quiz quiz-verify docker-up
 
 setup:
 	$(UV) sync --dev
@@ -14,6 +14,7 @@ check:
 	$(UV) run ruff check .
 	$(UV) run mypy src
 	$(UV) run pytest --cov=$(PACKAGE) --cov-report=term-missing
+	npm --prefix frontend run check
 
 doctor:
 	$(UV) run agentic-starter doctor
@@ -23,6 +24,9 @@ serve:
 
 frontend:
 	npm --prefix frontend run dev -- --host 127.0.0.1 --port 5173
+
+frontend-check:
+	npm --prefix frontend run check
 
 frontend-build:
 	npm --prefix frontend run build

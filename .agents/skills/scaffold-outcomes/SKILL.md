@@ -1,6 +1,6 @@
 ---
 name: scaffold-outcomes
-description: Help Codex turn this starter into a real product in phased, template-safe increments. Use when the user asks for the first real feature, wants guidance on where logic should live, or needs better outcomes from the scaffold rather than a blank rewrite.
+description: Help Codex turn this starter into a real product in phased, template-safe increments. Use when the user asks for a hackathon build, downstream clone, first real feature, guidance on where logic should live, or better outcomes from the scaffold rather than a blank rewrite.
 ---
 
 # Scaffold Outcomes
