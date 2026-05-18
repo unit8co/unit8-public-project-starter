@@ -1,15 +1,15 @@
 import { ChatKit, useChatKit } from "@openai/chatkit-react";
 
 const apiBaseUrl =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, "") ||
-  window.location.origin.replace(/\/$/, "");
+  (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim().replace(/\/$/, "") || "";
+const chatkitApiUrl = apiBaseUrl ? `${apiBaseUrl}/chatkit` : "/chatkit";
 const domainKey =
   (import.meta.env.VITE_CHATKIT_DOMAIN_KEY as string | undefined)?.trim() || "local-dev";
 
 export function App() {
   const { control } = useChatKit({
     api: {
-      url: `${apiBaseUrl}/chatkit`,
+      url: chatkitApiUrl,
       domainKey,
       fetch: (input, init) => {
         const existingHeaders = new Headers(init?.headers);
@@ -25,9 +25,6 @@ export function App() {
       colorScheme: "light",
       radius: "round",
       density: "normal",
-      color: {
-        accent: { primary: "#14532d", level: 3 },
-      },
       typography: {
         baseSize: 15,
         fontFamily: "\"IBM Plex Sans\", \"Avenir Next\", \"Segoe UI\", sans-serif",

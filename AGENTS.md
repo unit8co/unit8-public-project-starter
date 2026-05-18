@@ -29,9 +29,15 @@
 - When adding new starter capabilities, update README and the relevant docs page in the same change.
 - If a downstream repo enables the change-understanding quiz gate, run `make quiz` after code changes and commit `.change-quiz/result.json` with the PR.
 
+## Skill Routing
+- For chatbot, assistant UI, ChatKit, Vite, React, frontend white-screen, or tool-trace UX work, use `.agents/skills/frontend-starter-guidance/`.
+- For first real product features in a downstream clone or hackathon repo, use `.agents/skills/scaffold-outcomes/`.
+- For backend runtime wiring, API/CLI boundaries, or cross-package moves, use `.agents/skills/architecture-boundaries/`.
+- For Python code changes, use `.agents/skills/python-quality-gates/` and `.agents/skills/docstring-completeness/`.
+
 ## Validation Expectations
 Run the narrowest checks that cover the touched area:
-- Python code: `make check`
+- Python or frontend code: `make check`
 - Docker/runtime changes: `make docker-up`
 
 ## Review Checklist

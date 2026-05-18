@@ -14,6 +14,7 @@ from agentic_project_starter.chat.service import build_chat_service
 from agentic_project_starter.chat.storage import FileChatStore
 from agentic_project_starter.etl.registry import get_etl_job_specs
 from agentic_project_starter.runtime.models import RuntimeContext
+from agentic_project_starter.runtime.openai import configure_openai_runtime
 from agentic_project_starter.shared.config import Settings, get_settings
 from agentic_project_starter.shared.logging import configure_logging
 
@@ -22,6 +23,7 @@ def build_runtime_context(settings: Settings | None = None) -> RuntimeContext:
     """Create the runtime context used by API and CLI workflows."""
 
     resolved_settings = settings or get_settings()
+    configure_openai_runtime(resolved_settings)
     context = RuntimeContext(
         settings=resolved_settings,
         agent_specs=get_agent_specs(),
