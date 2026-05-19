@@ -20,7 +20,8 @@ make frontend
 The backend stays available on `http://127.0.0.1:8000`. The optional ChatKit
 frontend runs on `http://127.0.0.1:5173` and talks to the starter’s self-hosted
 `/chatkit` endpoint through the Vite dev proxy. Add `OPENAI_API_KEY` to `.env`
-before sending live chat messages.
+before sending live chat messages. The frontend template already includes the
+required ChatKit web component loader in `frontend/index.html`.
 
 ## 3. Run placeholder workflows
 

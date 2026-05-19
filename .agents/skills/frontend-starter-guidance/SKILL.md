@@ -40,6 +40,12 @@ or in a repo cloned from it.
 
 - Preserve the distinction between generic backend seams and frontend transport choices.
 - Keep frontend dependencies local to `frontend/`.
+- When using `@openai/chatkit-react`, keep the ChatKit web component loader in
+  `frontend/index.html`: `https://cdn.platform.openai.com/deployments/chatkit/chatkit.js`.
+- Keep backend secrets server-side; the frontend should call the starter's
+  backend chat/session seam rather than embedding OpenAI API keys.
+- If a downstream repo replaces ChatKit, remove both the loader and the ChatKit
+  frontend dependency in the same change.
 - Prefer incremental frontend delivery:
   - start with shell and information architecture
   - then wire the real interaction model
